@@ -1,7 +1,7 @@
 <?php
-$servername = "192.168.10.20"; // Replace with your database server IP
-$username = "leader"; // Replace with your MySQL user
-$password = "admin@123"; // Replace with your MySQL password
+$servername = "192.168.80.10";
+$username = "leader";
+$password = "admin@123";
 $dbname = "userdb";
 
 // Create connection
