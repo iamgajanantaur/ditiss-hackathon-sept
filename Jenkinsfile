@@ -7,5 +7,18 @@ pipeline {
             }
         }
         
+	stage ('login to the docker leader') {
+            steps {
+                sh 'ssh shuhari@192.168.80.10'
+            }
+        }
+
+        stage ('testing where am i') {
+            steps {
+		sh 'hostname'
+            }
+        }
+
+        
     }
 }
