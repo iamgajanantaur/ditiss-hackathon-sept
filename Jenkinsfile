@@ -9,21 +9,21 @@ pipeline {
             }
         }
 
-        stage ('Builld') {
+        stage ('Build') {
             steps {
 		sh 'docker build -t iamgajanantaur/myapp:latest .'
             }
         }
 
-        stage ('Push Image to dockerhub') {
+        stage ('Push docker image to dockerhub') {
             steps {
 		sh 'docker push iamgajanantaur/myapp:latest'
             }
         }
-        
-        stage ('') {
+
+        stage ('Create a service') {
             steps {
-		sh 'hostname'
+		sh 'docker service ls --filter name=myappservice --format '{{.Name}}' | grep -w myappservice && docker service rm myappservice; docker service create --name myappservice -p 80:80 --replicas=2 iamgajanantaur/myapp:latest'
             }
         }
     }
