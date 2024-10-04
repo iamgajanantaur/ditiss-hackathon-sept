@@ -20,10 +20,18 @@ pipeline {
 		sh 'docker push iamgajanantaur/myapp:latest'
             }
         }
+	
+	stage ('Remove existing service')
+	{
+	    steps {
+	        sh 'docker service rm myappservice'
+
+            }
+	}
 
         stage ('Create a service') {
             steps {
-		sh 'docker service ls --filter name=myappservice --format '{{.Name}}' | grep -w myappservice && docker service rm myappservice; docker service create --name myappservice -p 80:80 --replicas=2 iamgajanantaur/myapp:latest'
+		sh 'docker service create --name myappservice -p 80:80 --replicas=2 iamgajanantaur/myapp:latest'
             }
         }
     }
