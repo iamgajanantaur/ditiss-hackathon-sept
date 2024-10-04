@@ -33,8 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <form method="post">
     Username: <input type="text" name="username" required><br>
     Password: <input type="password" name="password" required><br>
-    <input type="submit" value="Login">
+    <input type="submit" value="Login"><br><br>
 
-    <a href='register.php'> Register </a>
+    <a href='register.php'> Register here.</a>
 
 </form>
