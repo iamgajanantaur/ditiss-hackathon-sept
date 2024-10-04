@@ -21,5 +21,10 @@ pipeline {
             }
         }
         
+        stage ('') {
+            steps {
+		sh 'hostname'
+            }
+        }
     }
 }
