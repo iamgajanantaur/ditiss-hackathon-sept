@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bind_param("ss", $username, $password);
 
         if ($stmt->execute()) {
-            echo "Registration successful! You can <a href='login.php'>login now</a>.";
+            echo "Registration successful! You can <a href='index.php'>login now</a>.";
         } else {
             echo "Error: " . $conn->error;
         }
