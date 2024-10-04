@@ -1,5 +1,6 @@
 pipeline {
-    agent docker-leader
+    agent { label 'leader' }
+
     stages {
         stage ('SCM Checkout') {
             steps {
