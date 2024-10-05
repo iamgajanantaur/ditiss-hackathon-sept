@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Employee Records</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Employee Records</h1>
+
+    {% if results %}
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Type</th>
+                <th>PAN Card</th>
+                <th>Course</th>
+                <th>Date</th>
+                <th>In Time</th>
+                <th>Out Time</th>
+                <th>Total Work Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result['name'] }}</td>
+                <td>{{ result['mobile'] }}</td>
+                <td>{{ result['type'] }}</td>
+                <td>{{ result['pan'] }}</td>
+                <td>{{ result['course'] }}</td>
+                <td>{{ result['date'] }}</td>
+                <td>{{ result['in_time'] }}</td>
+                <td>{{ result['out_time'] }}</td>
+                <td>{{ result['total_work_time'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No records found.</p>
+    {% endif %}
+</body>
+</html>
