@@ -3,9 +3,23 @@
 #EXPOSE 80
 
 
-FROM python
-WORKDIR /src
-RUN pip install flask
+#FROM python
+#WORKDIR /src
+#RUN pip install flask
+#COPY . .
+#EXPOSE 5000
+#CMD python myapp.py
+
+
+FROM python:3
+
+WORKDIR /usr/src/app
+
+COPY requirements.txt ./
+RUN pip install --no-cache-dir -r requirements.txt
+
 COPY . .
-EXPOSE 5000
-CMD python ./hackathon-0824/myapp.py
+
+EXPOSE 4000
+
+CMD [ "python", "./myapp.py" ]
