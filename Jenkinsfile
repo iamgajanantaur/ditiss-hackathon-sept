@@ -11,27 +11,27 @@ pipeline {
 
         stage ('Build') {
             steps {
-		sh 'docker build -t iamgajanantaur/myapp:latest .'
+		sh 'docker build -t iamgajanantaur/myflaskapp:latest .'
             }
         }
 
         stage ('Push docker image to dockerhub') {
             steps {
-		sh 'docker push iamgajanantaur/myapp:latest'
+		sh 'docker push iamgajanantaur/myflaskapp:latest'
             }
         }
 	
 	stage ('Remove existing service')
 	{
 	    steps {
-	        sh 'docker service rm myappservice'
+	        sh 'docker service rm myflaskappservice'
 
             }
 	}
 
         stage ('Create a service') {
             steps {
-		sh 'docker service create --name myappservice -p 80:80 --replicas=2 iamgajanantaur/myapp:latest'
+		sh 'docker service create --name myflaskappservice -p 80:4000 --replicas=2 iamgajanantaur/myflaskapp:latest'
             }
         }
     }
