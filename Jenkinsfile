@@ -2,8 +2,7 @@ pipeline {
     agent { label 'leader' }
 
     stages {
-        
-	stage ('SCM Checkout') {
+        stage ('SCM Checkout') {
             steps {
                 git branch: 'master', url: 'https://github.com/iamgajanantaur/ditiss-hackathon-sept.git'
             }
@@ -11,34 +10,30 @@ pipeline {
 
         stage ('Build') {
             steps {
-		sh 'docker build -t iamgajanantaur/myflaskapp:latest .'
+                sh 'docker build -t iamgajanantaur/myflaskapp:latest .'
             }
         }
 
         stage ('Push docker image to dockerhub') {
             steps {
-		sh 'docker push iamgajanantaur/myflaskapp:latest'
+                sh 'docker push iamgajanantaur/myflaskapp:latest'
             }
         }
-	
-	stage ('Remove existing service')
-	{
-	    steps {
-	        sh 'docker service rm myflaskappservice'
 
+        stage ('Remove existing service') {
+            steps {
+                sh 'docker service rm myflaskappservice'
             }
-	}
+        }
 
         stage ('Create a service') {
             steps {
-		sh 'docker service create --name myflaskappservice -p 80:4000 --replicas=2 iamgajanantaur/myflaskapp:latest'
+                sh 'docker service create --name myflaskappservice -p 80:4000 --replicas=2 iamgajanantaur/myflaskapp:latest'
             }
         }
-
     }
 
     post {
-
         always {
             echo 'Pipeline finished.'
         }
@@ -49,6 +44,6 @@ pipeline {
 
         failure {
             echo 'Deployment failed!'
-        }
+        }
     }
 }
