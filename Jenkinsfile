@@ -35,21 +35,20 @@ pipeline {
             }
         }
 
-	post {
-        success {
-            emailext (
-                subject: "SUCCESS: Job '${env.JOB_NAME}' build ${env.BUILD_NUMBER}",
-                body: "Good news! The build succeeded.",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-            )
-        }
-        failure {
-            emailext (
-                subject: "FAILURE: Job '${env.JOB_NAME}' build ${env.BUILD_NUMBER}",
-                body: "Oops! The build failed.",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
-            )
-        }
     }
+
+    post {
+
+        always {
+            echo 'Pipeline finished.'
+        }
+
+        success {
+            echo 'Deployment successful!'
+        }
+
+        failure {
+            echo 'Deployment failed!'
+        }
     }
 }
