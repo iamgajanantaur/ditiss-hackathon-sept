@@ -39,7 +39,7 @@ pipeline {
                 "Build Number: ${env.BUILD_NUMBER}<br/>" +
                 "URL: ${env.BUILD_URL}<br/>",
                 subject: "'${currentBuild.result}'",
-                mimeType: 'text/plain', to: 'steve@mailsrv.ditiss.sunbeam
+                mimeType: 'text/plain', to: 'steve@mailsrv.ditiss.sunbeam'
         } 
         
     }
