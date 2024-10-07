@@ -32,18 +32,32 @@ pipeline {
             }
         }
     }
+
     post {
-    always {
-            script {
-                def subject = "Build Notification"
-                def body = "The build has finished. Please check the Jenkins dashboard for details."
-                
-                mail (
-                    to: 'steve@mailsrv.ditiss.sunbeam',
-                    subject: subject,
-                    body: body
-                )
-            }
+    success {
+        script {
+            def subject = "Build Successful: ${env.JOB_NAME} - ${env.BUILD_NUMBER}"
+            def body = "Good news! The build ${env.BUILD_NUMBER} for job ${env.JOB_NAME} was successful. Check the Jenkins dashboard for more details."
+
+            mail (
+                to: 'steve@mailsrv.ditiss.sunbeam',
+                subject: subject,
+                body: body
+            )
         }
+    }
+    
+    failure {
+        script {
+            def subject = "Build Failed: ${env.JOB_NAME} - ${env.BUILD_NUMBER}"
+            def body = "Unfortunately, the build ${env.BUILD_NUMBER} for job ${env.JOB_NAME} has failed. Please check the Jenkins logs and take the necessary actions."
+
+            mail (
+                to: 'steve@mailsrv.ditiss.sunbeam',
+                subject: subject,
+                body: body
+            )
+        }
+    }
     }
 }
