@@ -34,16 +34,13 @@ pipeline {
     }
     post {
     always {
-            script {
-                def subject = "Build Notification"
-                def body = "The build has finished. Please check the Jenkins dashboard for details."
-                
-                mail (
-                    to: 'steve@mailsrv.ditiss.sunbeam',
-                    subject: subject,
-                    body: body
-                )
-            }
+	    script {
+		mail (
+		    to: 'steve@mailsrv.ditiss.sunbeam',
+		    subject: subject,
+		    body: body
+		)
+	    }
         }
     }
 }
