@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        .button-container {
+            margin-top: 50px;
+        }
+        button {
+            width: 200px;
+            padding: 10px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Welcome, {{ name }}!</h2>
+    <div class="button-container">
+        <button onclick="location.href='/enter_details'">Enter Details</button>
+        <button onclick="location.href='/show_records'">Show Records</button>
+    </div>
+</body>
+</html>

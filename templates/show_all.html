@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        td {
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Interview Records</h2>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>PAN Card</th>
+            <th>Interview Course</th>
+            <th>Interview Date</th>
+            <th>In Time</th>
+            <th>Out Time</th>
+            <th>Total Work Time</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record.name }}</td>
+            <td>{{ record.mobile }}</td>
+            <td>{{ record.email }}</td>
+            <td>{{ record.pancard }}</td>
+            <td>{{ record.intw_course }}</td>
+            <td>{{ record.intw_date }}</td>
+            <td>{{ record.in_time }}</td>
+            <td>{{ record.out_time }}</td>
+            <td>{{ record.total_work_time }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <button onclick="location.href='/dashboard'">Back</button>
+</body>
+</html>

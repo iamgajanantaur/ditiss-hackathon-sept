@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .register-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin: 10px 0 5px;
+            color: #555;
+        }
+        input, select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        button {
+            padding: 10px;
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            text-align: center;
+            margin-top: 10px;
+            color: #333;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+<div class="register-container">
+    <h2>Register</h2>
+    <form action="/register" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Name" required>
+
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="Password" required>
+
+        <label for="mobile">Mobile:</label>
+        <input type="text" name="mobile" placeholder="Mobile" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Email" required>
+
+        <label for="pancard">PAN Card:</label>
+        <input type="text" name="pancard" placeholder="PAN Card" required>
+
+        <label for="intw_type">Interview Type:</label>
+        <select name="intw_type" required>
+            <option value="Technical">Technical</option>
+            <option value="HR">HR</option>
+        </select>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p>Already registered? <a href="/login">Login Here</a></p>
+</div>
+
+</body>
+</html>

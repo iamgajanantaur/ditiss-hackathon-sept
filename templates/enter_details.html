@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h2 {
+            text-align: center;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        select, input[type="date"], input[type="time"], button {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            border: none;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter Interview Details</h2>
+    <form action="/enter_details" method="POST">
+        <label for="intw_course">Course:</label>
+        <select name="intw_course" id="intw_course" required>
+            <option value="DAC">DAC</option>
+            <option value="DMC">DMC</option>
+            <option value="DESD">DESD</option>
+            <option value="DBDA">DBDA</option>
+            <option value="DITISS">DITISS</option>
+        </select>
+
+        <label for="intw_date">Date:</label>
+        <input type="date" name="intw_date" id="intw_date" required>
+
+        <label for="in_time">In Time:</label>
+        <input type="time" name="in_time" id="in_time" required>
+
+        <label for="out_time">Out Time:</label>
+        <input type="time" name="out_time" id="out_time" required>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
