@@ -10,13 +10,13 @@ pipeline {
 
         stage ('Build') {
             steps {
-                sh 'docker build -t iamgajanantaur/myflaskapp:latest .'
+                sh 'docker build -t iamgajanantaur/myflaskapp .'
             }
         }
 
         stage ('Push docker image to dockerhub') {
             steps {
-                sh 'docker push iamgajanantaur/myflaskapp:latest'
+                sh 'docker push iamgajanantaur/myflaskapp'
             }
         }
 
@@ -28,7 +28,7 @@ pipeline {
 
         stage ('Create a service') {
             steps {
-                sh 'docker service create --name myflaskappservice -p 80:4000 --replicas=10 iamgajanantaur/myflaskapp:latest'
+                sh 'docker service create --name myflaskappservice -p 80:4000 --replicas=10 iamgajanantaur/myflaskapp'
             }
         }
     }
