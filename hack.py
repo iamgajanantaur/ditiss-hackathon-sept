@@ -73,6 +73,7 @@ def login():
         if user and check_password_hash(user['password'], password):
             session['user_id'] = user['id']
             session['name'] = user['name']
+            session['email'] = user['email']
             return redirect(url_for('dashboard'))
         else:
             return "Invalid email or password!"
