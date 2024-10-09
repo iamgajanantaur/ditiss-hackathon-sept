@@ -5,14 +5,14 @@ from datetime import datetime, time, timedelta
 import mysql.connector
 
 app = Flask(__name__)
-app.secret_key = 'sunbeam'  # Set your secret key here
+app.secret_key = 'your_secret_key'  # Set your secret key here
 
 # MySQL configurations
 db_config = {
-    'host': '192.168.10.20',
+    'host': '172.18.6.158',
     'user': 'mgr',  # Replace with your MySQL username
     'password': 'manager',  # Replace with your MySQL password
-    'database': 'test'  # Replace with your database name
+    'database': 'hack'  # Replace with your database name
 }
 
 
@@ -80,7 +80,9 @@ def login():
 
     return render_template('login.html')
 
-@app.route('/register', methods=['GET', 'POST']) def register():
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
     if request.method == 'POST':
         name = request.form['name']
         password = request.form['password']
@@ -190,5 +192,6 @@ def logout():
     session.pop('name', None)
     return redirect(url_for('home'))
 
+
 if __name__ == '__main__':
-    app.run(port=4000, host="0.0.0.0")
+    app.run(debug=True)
