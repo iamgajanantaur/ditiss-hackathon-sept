@@ -80,16 +80,7 @@ def login():
 
     return render_template('login.html')
 
-@app.route('/logout')
-def logout():
-    session.pop('email', None)
-    session.pop('name', None)
-    session.pop('user_id', None)  # Make sure to remove 'user_id' from session
-    return redirect(url_for('home'))
-
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
+@app.route('/register', methods=['GET', 'POST']) def register():
     if request.method == 'POST':
         name = request.form['name']
         password = request.form['password']
