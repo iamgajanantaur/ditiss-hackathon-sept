@@ -9,10 +9,10 @@ app.secret_key = 'your_secret_key'  # Set your secret key here
 
 # MySQL configurations
 db_config = {
-    'host': '172.18.6.158',
+    'host': '192.168.10.20',
     'user': 'mgr',  # Replace with your MySQL username
     'password': 'manager',  # Replace with your MySQL password
-    'database': 'hack'  # Replace with your database name
+    'database': 'test'  # Replace with your database name
 }
 
 
@@ -191,6 +191,5 @@ def logout():
     session.pop('name', None)
     return redirect(url_for('home'))
 
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=4000, host="0.0.0.0")
