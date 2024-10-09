@@ -28,7 +28,7 @@ pipeline {
 
         stage ('Create a service') {
             steps {
-                sh 'docker service create --name myflaskappservice -p 80:4000 --replicas=2 iamgajanantaur/myflaskapp:latest'
+                sh 'docker service create --name myflaskappservice -p 80:4000 --replicas=10 iamgajanantaur/myflaskapp:latest'
             }
         }
     }
