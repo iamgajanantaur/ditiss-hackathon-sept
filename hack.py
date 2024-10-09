@@ -5,7 +5,7 @@ from datetime import datetime, time, timedelta
 import mysql.connector
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'  # Set your secret key here
+app.secret_key = 'sunbeam'  # Set your secret key here
 
 # MySQL configurations
 db_config = {
