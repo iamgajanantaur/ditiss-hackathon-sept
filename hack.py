@@ -185,11 +185,13 @@ def show_records():
     # Render the show_all.html template with the fetched records
     return render_template('show_all.html', records=records)
 
-
-@app.route('/logout')
+# Logout route (added POST method)
+@app.route('/logout', methods=['POST'])
 def logout():
     session.pop('email', None)
     session.pop('name', None)
+    session.pop('user_id', None)  # Clear the user_id from session
+    flash('You have been logged out successfully.')  # Optional: Flash a logout message
     return redirect(url_for('home'))
 
 

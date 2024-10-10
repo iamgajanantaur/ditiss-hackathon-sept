@@ -30,6 +30,12 @@
         button:hover {
             background-color: #45a049;
         }
+        .logout-button {
+            background-color: #f44336;
+        }
+        .logout-button:hover {
+            background-color: #e53935;
+        }
     </style>
 </head>
 <body>
@@ -37,6 +43,11 @@
     <div class="button-container">
         <button onclick="location.href='/enter_details'">Enter Details</button>
         <button onclick="location.href='/show_records'">Show Records</button>
+
+        <!-- Logout Button -->
+        <form method="POST" action="{{ url_for('logout') }}" style="display: inline;">
+            <button type="submit" class="logout-button">Logout</button>
+        </form>
     </div>
 </body>
 </html>
