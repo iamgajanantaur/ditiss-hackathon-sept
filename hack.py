@@ -9,7 +9,7 @@ app.secret_key = 'sunbeam'  # Set your secret key here
 
 # MySQL configurations
 db_config = {
-    'host': '192.168.10.20',
+    'host': '192.168.80.10',
     'user': 'mgr',  # Replace with your MySQL username
     'password': 'manager',  # Replace with your MySQL password
     'database': 'test'  # Replace with your database name
